@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "22a339e6-4e56-40b1-b5cd-78cfa78b3df3",
+		"name": "keepsafe-cloud-case",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "monthlyPayment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var responseJson = pm.response.json();",
+							"pm.test(\"Check on success\", () => {",
+							"  pm.expect(responseJson.success).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Check on monthlyPayment\", () => {",
+							"  pm.expect(responseJson.monthlyPayment).to.eql(99.48);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{KEEPSAFE_ENV}}/monthlyPayment",
+					"host": [
+						"{{KEEPSAFE_ENV}}"
+					],
+					"path": [
+						"monthlyPayment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "totalRent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});",
+							"",
+							"var responseJson = pm.response.json();",
+							"pm.test(\"Check on success\", () => {",
+							"  pm.expect(responseJson.success).to.eql(false);",
+							"});",
+							"",
+							"pm.test(\"Check on totalRent\", () => {",
+							"  pm.expect(responseJson.monthlyPayment).to.eql(3875.2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{KEEPSAFE_ENV}}/totalRent",
+					"host": [
+						"{{KEEPSAFE_ENV}}"
+					],
+					"path": [
+						"totalRent"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
