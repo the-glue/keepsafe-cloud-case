@@ -12,3 +12,5 @@ jobs:
     steps:
       - id: command
         run: echo ${{ env.SHOWCASE_ENV }}
+      - id: show pipeline environemnt
+        run: ls
