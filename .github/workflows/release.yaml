@@ -1,0 +1,14 @@
+name: Showcase
+on:
+  push:
+    branches:
+      - main
+env:
+  SHOWCASE_ENV: lol
+jobs:
+  build:
+    name: TODO
+    runs-on: ubuntu-latest
+    steps:
+      - id: command
+        run: echo ${{ env.SHOWCASE_ENV }}
